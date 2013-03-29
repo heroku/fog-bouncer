@@ -55,12 +55,31 @@ module Fog
           end
         end
 
+        def add_protocol(type, port)
+          if type == :all
+            protocol = protocols.find { |p| p.patch(type) }
+            if protocol.nil? && protocol = Fog::Bouncer::Protocols::All.new(-1, self)
+              protocols << protocol
+            end
+
+            protocol
+          else
+            super
+          end
+        end
+
         def match(source)
           "#{name}@#{user_id}" == source || "#{name}@#{user_alias}" == source || name == source
         end
 
         def user_id
           @user_id ||= group.security.accounts[user_alias]
+        end
+
+        private
+
+        def all
+          add_protocol(:all, -1).local = true
         end
       end
     end

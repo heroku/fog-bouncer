@@ -12,7 +12,7 @@ module Fog
           permission = permissions.find { |permission| permission["IpProtocol"] == protocol.type && permission["FromPort"] == protocol.from && permission["ToPort"] == protocol.to }
 
           if permission.nil?
-            permission = { "Groups" => [], "IpRanges" => [], "IpProtocol" => protocol.type, "FromPort" => protocol.from, "ToPort" => protocol.to }
+            permission = protocol.to_permission
             permissions << permission
           end
 

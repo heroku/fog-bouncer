@@ -63,11 +63,28 @@ module Fog
       def to_log
         { source: source.source, protocol: type, from: from, to: to }
       end
+
+      def to_permission
+        { "Groups" => [], "IpRanges" => [], "IpProtocol" => type, "FromPort" => from, "ToPort" => to }
+      end
     end
 
     module Protocols
+      class InvalidAllSource < StandardError; end
       class InvalidICMPType < StandardError; end
       class InvalidPort < StandardError; end
+
+      class All < Protocol
+        def to_permission
+          { "Groups" => [], "IpRanges" => [], "IpProtocol" => "-1" }
+        end
+
+        private
+
+        def validate
+          raise InvalidAllSource.new("All protocols can only be used with group sources.") unless source.is_a?(Fog::Bouncer::Sources::Group)
+        end
+      end
 
       class ICMP < Protocol
         ICMP_MAPPING = {
