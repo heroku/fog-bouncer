@@ -56,7 +56,7 @@ module Fog
         end
 
         def add_protocol(type, port)
-          if type == :all
+          if type == :all || type == -1
             protocol = protocols.find { |p| p.patch(type) }
             if protocol.nil? && protocol = Fog::Bouncer::Protocols::All.new(-1, self)
               protocols << protocol
