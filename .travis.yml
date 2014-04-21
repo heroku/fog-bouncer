@@ -1,30 +1,28 @@
 env:
   global:
   - NO_SIMPLECOV=true
-  - secure: RgUUFWkKaUmLSBIjIXO0viwnubXmaf/FGYHYyu6+ZaRZff/iohReMiRRA7XHM1X+skwmSwqddOsbjb1x8e+jBIb7b3PH2MnEn9dfVC1B9mUZGTsgGFqDOfR5m7wrpXnXUfmYfko6/AE9DkXK1QFtCJOqRMr7wQGLlM1KUmAKTak=
-  - secure: liGQBsU8ZwPQXuVOreTHVE3ppBHmu2HYxOYimQ3MsTmutferkgHcTO0x3uFrY/sKPbzpiiy8H0NpDKAjawwEkok8GWtdWs6+x7NkQ4pRdivAunlGPzKtYEx7rl8unhnEboXexrdxwkrdkLAh2G9bK9DN2n93qf+Y5QuKI67xwmg=
-  - secure: oZHs8YJcoKWm+qSy34pzPK/vIJa091cTqLzJEw98XawgTmtsEpwkEwuLu9ZWxRPmc3TgxAlxrMOZn8ySZXVMmmHt3XnCIZJA6Ujy8VhOQ8KLaO5b/b9sOPcWkjV0Q9+orC8oTpA3SLIu/FktR0WGcrW7R54HckXMHdZVqakaRdM=
+  - secure: U48+AvJmsfRtyPPi5CIqc3WuUOlPPJVlw3zBSmwFoVdLAOZ25teb0GycLO2pwgAHaOPfVaEbmY/LXvSruSEa2AGxy2lNFkN4LIqyxeP7sfyTEtkI948VK7Y8v3Fa6KUSrStFSkIRYRzihOEypQIX3Cw46ZF08KRBFDTMl4qlfQs=
+  - secure: B1H57jUYG6IS26Dn4Kgs7MYpyxIfRvAwyxoTG0KS7H/3aRiw1NOWRDwMVnAPg1OgwxG1NsZTfmTCA7zXggYYFmrpSPbFJULWoFA2LuRkIVow0/IoRmmLnO9jzfXxnn8Gl876wp7jyhmMdRwVbWAqsuzO7K0ruGrguwnmHq/1/no=
+  - secure: mliRgueCZpl66Cgo/LSNmJYLRLEhL4/EmY2Nk1g8SgnrZApdIzEJ3VxHLz0bOenbYSrWRBhmoWgth7O8ak6iBm2l/i1WYzI0ZikCQ+HaOy9qLM81lNkqmdgp/mgV3hJWAPl0Phh3bFWKT/rhzJg1ko3qoOMtOVcl9b1+FGu6whQ=
   matrix:
   - FOG_REAL=false
   - FOG_REAL=true
 matrix:
   exclude:
   - rvm: 1.9.2
-    env:
-    - FOG_REAL=true
-    - NO_SIMPLECOV=true
+    env: FOG_REAL=true
+  - rvm: 1.9.3
+    env: FOG_REAL=true
   - rvm: jruby-19mode
-    env:
-    - FOG_REAL=true
-    - NO_SIMPLECOV=true
+    env: FOG_REAL=true
 branches:
   only:
   - master
 language: ruby
 cache: bundler
 rvm:
+- 2.1.1
 - 1.9.2
 - 1.9.3
-- 2.1.1
 - jruby-19mode
 script: bundle exec rake test --trace
