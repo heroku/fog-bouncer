@@ -40,7 +40,9 @@ module Fog
           next if @specific_groups.any? && !@specific_groups.include?(remote_group.name)
           group = group(remote_group.name, remote_group.description)
           group.remote = remote_group
-          IPPermissions.to(group, remote_group.ip_permissions) if remote_group.ip_permissions
+          if remote_group.ip_permissions && remote_group.ip_permissions.all?{|p| %w[icmp tcp udp].include?(p["ipProtocol"]) }
+            IPPermissions.to(group, remote_group.ip_permissions)
+          end
         end
       end
 
