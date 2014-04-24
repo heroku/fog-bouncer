@@ -27,6 +27,10 @@ def load_security(security)
   Fog::Bouncer.load File.dirname(__FILE__) + "/support/security/#{security}.rb"
 end
 
+def fog_security_groups
+  Fog::Bouncer.fog.security_groups.all.reject(&:vpc_id)
+end
+
 Fog.mock! unless ENV['FOG_REAL'] && ["1", "true"].include?(ENV['FOG_REAL'])
 
 class MiniTest::Spec

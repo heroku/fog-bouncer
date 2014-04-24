@@ -37,6 +37,7 @@ module Fog
 
       def import_remote_groups
         Fog::Bouncer.fog.security_groups.each do |remote_group|
+          next if remote_group.vpc_id
           next if @specific_groups.any? && !@specific_groups.include?(remote_group.name)
           group = group(remote_group.name, remote_group.description)
           group.remote = remote_group

@@ -15,7 +15,7 @@ describe Fog::Bouncer::Security do
   describe "pretending" do
     before do
       Fog::Bouncer.pretend!
-      @groups = @fog.security_groups.all
+      @groups = fog_security_groups
       @fog.security_groups.get('default').service.authorize_security_group_ingress('default', "IpPermissions" => [{"Groups" => [], "IpRanges" => [{"CidrIp" => "0.0.0.0/0"}], "IpProtocol" => "icmp", "FromPort" => "-1", "ToPort" => "-1"}])
       @doorlist.sync
     end
@@ -23,7 +23,7 @@ describe Fog::Bouncer::Security do
     it "should not sync anything" do
       assert !@doorlist.groups.first.remote?
       @fog.security_groups.get('default').ip_permissions.wont_be_empty
-      @fog.security_groups.size.must_equal @groups.size
+      fog_security_groups.size.must_equal @groups.size
     end
   end
 
@@ -42,7 +42,7 @@ describe Fog::Bouncer::Security do
     end
 
     it "synchronises against AWS" do
-      @fog.security_groups.size.must_equal 4
+      fog_security_groups.size.must_equal 4
 
       fog_douchebag = @fog.security_groups.get('douchebag')
       douchebag = @doorlist.groups.find { |g| g.name == 'douchebag' }
@@ -91,8 +91,8 @@ describe Fog::Bouncer::Security do
     end
 
     it "removes all groups except default" do
-      @fog.security_groups.size.must_equal 1
-      @fog.security_groups.first.name.must_equal "default"
+      fog_security_groups.size.must_equal 1
+      fog_security_groups.first.name.must_equal "default"
     end
   end
 end
