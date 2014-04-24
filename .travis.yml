@@ -1,47 +1,28 @@
 env:
   global:
-    - NO_SIMPLECOV=true
-    - secure: "hBuPzm8oDPYwDzutnwwOkc2cwMNPHuCcTqw9ZHnSJlPyKAIGLBvDca+Nqu/v\niqVS+H8p2vn8/Dj+Y4+OouyL83ibH5PLsMLGqFYQqJ2glj/8qozoq0EB1C5x\n2k7/EtK1fft4oJhyWvEOd92q5/kDYAwRsQYZqBn7E9Yu7D4zfnQ="
-    - secure: "UXDtqnEW0BUtATes/xYIHFFXwGsIJbxMs4dNb6yC2KplHUSenx/RhgVMnRhF\nvSBCFuTPXHHHQKg8SgrxRJe3M841sKZxfSkRJ2PYMoW1qNEhF86EMxvrMDfg\nQ6PM5SDRk3u1PiGNdVlgeRVKFKOTnBaySTGDRVBnTZmK/iYHv5A="
-    - secure: "jzm0Mn03H2wVsJbk+JxbZ0y2ptrMXKdfAs243W9Bd2PVg/no+CFxw7CDlvcT\n5IEB/3CFPTnbbFj0BMGa5hZFa6eSG4V4vKPRe5M10dx6807nho0G1xWHIj5b\nOok5u1YvDHuaZ6aGwo/oprMBRKh68mhgSYS/KfuFEdj689QVae4="
+  - NO_SIMPLECOV=true
+  - secure: Ys71anAIjNI1caD4vzbe8rchDxW01pYq7VPd+BNZl7L3XSeNh6BOKoB61Mxul2uxe+cmuOtgu2kWJaG8Q/2dc2Uk1WIlwPtDLI0RGkaXi1nxcA38wBzE/x5nWqnuO2IC8sH7dnJoCGJh6l3Wh1fa6atM+AumE+opMVmpjzv1XEE=
+  - secure: RRszwiF6zjaFdt9ChebyyxJhya4PVepnCVYn8AgBHsvpYtItn4y/1W5hyRvCAaqg+Fw7OXzjS+bDb0amln8PwEX7dbB8OIX0srRXlEmqZsxvp1aZO4QJE8mBU1SGeDz975/riEqM+WrUs0I3P+YoS0rzYAfDdrgOsZuMOXMv3RQ=
+  - secure: UvtPU/JRExEq0ZR5XclUxIsDw0TdYY2RXRRkrwghBm1od4OasFzv9lPnG3OSCxO9rTG/dxs7P2bzsCA9Z1wcvFvhudcp/uTAHhRh/Bs0iebpRzjXno51dvs86RfXdSuN2gsDhd8mehji8hqmlhwpSznujEekp3Vvtuca40aA/Tk=
   matrix:
-    - FOG_REAL=false
-    - FOG_REAL=true
-
+  - FOG_REAL=false
+  - FOG_REAL=true
 matrix:
   exclude:
-    - rvm: 1.9.2
-      env:
-        - FOG_REAL=true
-        - NO_SIMPLECOV=true
-        - secure: "hBuPzm8oDPYwDzutnwwOkc2cwMNPHuCcTqw9ZHnSJlPyKAIGLBvDca+Nqu/v\niqVS+H8p2vn8/Dj+Y4+OouyL83ibH5PLsMLGqFYQqJ2glj/8qozoq0EB1C5x\n2k7/EtK1fft4oJhyWvEOd92q5/kDYAwRsQYZqBn7E9Yu7D4zfnQ="
-        - secure: "UXDtqnEW0BUtATes/xYIHFFXwGsIJbxMs4dNb6yC2KplHUSenx/RhgVMnRhF\nvSBCFuTPXHHHQKg8SgrxRJe3M841sKZxfSkRJ2PYMoW1qNEhF86EMxvrMDfg\nQ6PM5SDRk3u1PiGNdVlgeRVKFKOTnBaySTGDRVBnTZmK/iYHv5A="
-        - secure: "jzm0Mn03H2wVsJbk+JxbZ0y2ptrMXKdfAs243W9Bd2PVg/no+CFxw7CDlvcT\n5IEB/3CFPTnbbFj0BMGa5hZFa6eSG4V4vKPRe5M10dx6807nho0G1xWHIj5b\nOok5u1YvDHuaZ6aGwo/oprMBRKh68mhgSYS/KfuFEdj689QVae4="
-    - rvm: jruby-19mode
-      env:
-        - FOG_REAL=true
-        - NO_SIMPLECOV=true
-        - secure: "hBuPzm8oDPYwDzutnwwOkc2cwMNPHuCcTqw9ZHnSJlPyKAIGLBvDca+Nqu/v\niqVS+H8p2vn8/Dj+Y4+OouyL83ibH5PLsMLGqFYQqJ2glj/8qozoq0EB1C5x\n2k7/EtK1fft4oJhyWvEOd92q5/kDYAwRsQYZqBn7E9Yu7D4zfnQ="
-        - secure: "UXDtqnEW0BUtATes/xYIHFFXwGsIJbxMs4dNb6yC2KplHUSenx/RhgVMnRhF\nvSBCFuTPXHHHQKg8SgrxRJe3M841sKZxfSkRJ2PYMoW1qNEhF86EMxvrMDfg\nQ6PM5SDRk3u1PiGNdVlgeRVKFKOTnBaySTGDRVBnTZmK/iYHv5A="
-        - secure: "jzm0Mn03H2wVsJbk+JxbZ0y2ptrMXKdfAs243W9Bd2PVg/no+CFxw7CDlvcT\n5IEB/3CFPTnbbFj0BMGa5hZFa6eSG4V4vKPRe5M10dx6807nho0G1xWHIj5b\nOok5u1YvDHuaZ6aGwo/oprMBRKh68mhgSYS/KfuFEdj689QVae4="
-    - rvm: rbx-19mode
-      env:
-        - FOG_REAL=true
-        - NO_SIMPLECOV=true
-        - secure: "hBuPzm8oDPYwDzutnwwOkc2cwMNPHuCcTqw9ZHnSJlPyKAIGLBvDca+Nqu/v\niqVS+H8p2vn8/Dj+Y4+OouyL83ibH5PLsMLGqFYQqJ2glj/8qozoq0EB1C5x\n2k7/EtK1fft4oJhyWvEOd92q5/kDYAwRsQYZqBn7E9Yu7D4zfnQ="
-        - secure: "UXDtqnEW0BUtATes/xYIHFFXwGsIJbxMs4dNb6yC2KplHUSenx/RhgVMnRhF\nvSBCFuTPXHHHQKg8SgrxRJe3M841sKZxfSkRJ2PYMoW1qNEhF86EMxvrMDfg\nQ6PM5SDRk3u1PiGNdVlgeRVKFKOTnBaySTGDRVBnTZmK/iYHv5A="
-        - secure: "jzm0Mn03H2wVsJbk+JxbZ0y2ptrMXKdfAs243W9Bd2PVg/no+CFxw7CDlvcT\n5IEB/3CFPTnbbFj0BMGa5hZFa6eSG4V4vKPRe5M10dx6807nho0G1xWHIj5b\nOok5u1YvDHuaZ6aGwo/oprMBRKh68mhgSYS/KfuFEdj689QVae4="
-
+  - rvm: 1.9.2
+    env: FOG_REAL=true
+  - rvm: 1.9.3
+    env: FOG_REAL=true
+  - rvm: jruby-19mode
+    env: FOG_REAL=true
 branches:
   only:
-    - master
-
+  - master
 language: ruby
-
+cache: bundler
 rvm:
-  - 1.9.2
-  - 1.9.3
-  - jruby-19mode
-  - rbx-19mode
-
+- 2.1.1
+- 1.9.2
+- 1.9.3
+- jruby-19mode
 script: bundle exec rake test --trace
