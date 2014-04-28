@@ -2,7 +2,8 @@ Fog::Bouncer.security :private do
   account "jersey_shore", Fog::Bouncer.aws_account_id
 
   define :ping, "0.0.0.0/0" do
-    icmp :ping
+    icmp :echo_request
+    icmp :echo_reply
   end
 
   define :ssh, ["0.0.0.0/0", "1.1.1.1/1"] do
@@ -23,7 +24,8 @@ Fog::Bouncer.security :private do
     end
 
     source "0.0.0.0/0" do
-      icmp :ping
+      icmp :echo_request
+      icmp :echo_reply
     end
   end
 
