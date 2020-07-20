@@ -1,4 +1,4 @@
-require "fog"
+require "fog/aws"
 require "fog/bouncer/group"
 require "fog/bouncer/protocols"
 require "fog/bouncer/security"
