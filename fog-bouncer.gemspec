@@ -15,12 +15,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Fog::Bouncer::VERSION
 
-  gem.add_dependency "clamp", "~> 0.5.0"
-  gem.add_dependency "clarence", "1987.0.0"
-  gem.add_dependency "fog-aws", "~> 0.6"
-  gem.add_dependency "ipaddress", "~> 0.8.0"
-  gem.add_dependency "jruby-openssl", "~> 0.7.6" if RUBY_PLATFORM == "java"
-  gem.add_dependency "rake", "~> 0.9.0"
+  gem.add_dependency "clamp"
+  gem.add_dependency "fog-aws"
+  gem.add_dependency "ipaddress"
+  gem.add_dependency "rake"
   gem.add_dependency "scrolls", "~> 0.2.1"
 
   gem.add_development_dependency "minitest"
